@@ -1,0 +1,279 @@
+wipe Right → Next Slide
+Point index finger and flick right to advance to next slide/page
+👈
+Swipe Left → Previous Slide
+Point index finger and flick left to go back
+✊
+Fist → Pause / Blank Screen
+Close fist to black out the screen (presenter pause moment)
+🖐️
+Open Palm → Resume
+Open hand to bring the slide back
+🤏
+Pinch In/Out → Zoom
+Pinch gesture to zoom into a specific area of the slide
+👍
+Thumbs Up → Laser Pointer ON
+Activate a red laser dot that follows your fingertip on screen
+✌️
+Peace Sign → Draw Mode
+Switch to annotation/draw mode — finger becomes a pen
+🤟
+3 Fingers → Erase Last Annotation
+Undo the last drawn annotation instantly
+✏️
+Air Pen / Freehand Draw
+Index finger tip tracked as pen — draw circles, underlines, arrows on PDF in real time
+🖊️
+Highlighter Mode
+Switch to semi-transparent yellow stroke — highlight text on the PDF page
+🔲
+Shape Stamp — Box / Circle / Arrow
+Gesture shortcut to drop a pre-drawn shape (rectangle, circle, arrow) on the slide
+🗑️
+Clear All Annotations
+Wipe gesture (flat hand sweep left) clears all drawings on current page
+💾
+Save Annotated PDF
+Export the current PDF with all annotations baked in as a downloadable file
+🎨
+Color Switcher
+On-screen palette: red, blue, green, black — click or gesture to switch pen color
+↩️
+Undo / Redo
+Standard undo stack — remove last stroke without clearing everything
+🔴
+Live Laser Pointer
+Glowing red dot follows your fingertip across the projected slide in real time
+📸
+Snap Slide to Image
+Screenshot any slide as PNG with one gesture — auto-saved to downloads
+⏱️
+Presentation Timer Overlay
+Floating countdown timer so presenter knows time left — gesture to start/stop
+🌙
+Dark / Light Mode Toggle
+Switch PDF viewer between dark and light mode mid-presentation
+📷
+Webcam Pip (Picture-in-Picture)
+Show presenter's webcam feed in a small corner — great for virtual presentations
+🗺️
+Slide Thumbnail Strip
+Bottom bar shows all PDF pages as thumbnails — jump to any page by pointing at it
+
+Hand gesture navigation (next, prev, zoom, blank, laser)
+MediaPipe HandsTensorFlow.js
+PDF upload and rendering (multi-page)
+PDF.js
+Air pen / freehand draw on slides
+HTML Canvas APIMediaPipe
+Highlighter, shapes (box, circle, arrow), color picker
+Canvas APIFabric.js
+Live laser pointer (glowing dot follows fingertip)
+Canvas APICSS animations
+Slide thumbnail strip — click to jump to any page
+PDF.jsCSS grid
+Presentation timer overlay with gesture start/stop
+JavaScriptCSS animations
+Dark / light mode toggle for PDF viewer
+CSS variablesLocalStorage
+Webcam picture-in-picture (presenter face overlay)
+MediaDevices APIPicture-in-Picture API
+Snap slide to PNG — gesture triggered download
+html2canvasCanvas.toDataURL()
+Undo / redo annotation stack
+JavaScript history array
+Export annotated PDF (annotations baked in)
+pdf-libjsPDF
+Gesture cheat sheet overlay (show/hide)
+HTML/CSS modal
+Gesture confidence indicator (live detection status)
+MediaPipe resultsCSS meter
+
+PDF upload endpoint + secure file storage
+Node.js + ExpressMulterCloudinary / S3
+User auth — save annotation sessions per user
+JWTbcryptMongoDB
+Save + load annotation sessions (per slide, per PDF)
+MongoDBREST API
+Shareable session link — others view your annotations live
+Socket.ioExpress
+AI slide summarizer — summarize current slide text via AI
+OpenAI / Claude APIpdf-parse
+AI slide translator — translate slide text to any language
+Claude APIREST endpoint
+Presentation history — all past uploads and sessions
+MongoDBExpress routes
+Server-side annotated PDF export (higher quality)
+pdf-lib (Node)Sharp
+Project scaffold + PDF viewer
+Get a PDF rendering on screen with page controls
+Step 1
+Init project
+Vite + React or plain HTML. Set up folder structure: /src, /assets, /components
+Step 2
+Install PDF.js
+npm install pdfjs-dist. Load worker. Render first page onto a canvas element.
+Step 3
+Page navigation
+Previous / Next buttons. Track currentPage state. Re-render on change.
+Step 4
+File upload UI
+Drag-and-drop zone + file input. Read file as ArrayBuffer, pass to PDF.js.
+MediaPipe hand tracking + gesture engine
+Detect hands and map gestures to actions
+Step 5
+Webcam feed
+getUserMedia() → hidden video element. Show webcam in corner preview box.
+Step 6
+MediaPipe setup
+Install @mediapipe/hands. Run hand landmark detection on each video frame via requestAnimationFrame.
+Step 7
+Gesture classifier
+Write classifyGesture(landmarks) function. Detect: fist, open palm, swipe, peace sign, thumbs up, pinch.
+Step 8
+Action dispatcher
+Map each gesture to an action: swipe right → nextPage(), peace sign → toggleDrawMode(), etc.
+Step 9
+Debounce + cooldown
+Add 800ms cooldown per gesture so one wave doesn't skip 5 slides.
+Step 10
+Confidence display
+Show detected gesture name + confidence % in a small HUD overlay.
+Annotation canvas layer
+Draw, highlight, erase on top of the PDF
+Step 11
+Overlay canvas
+Position a transparent canvas exactly over the PDF canvas using CSS absolute positioning.
+Step 12
+Pen mode
+When draw mode is active, track fingertip (index finger tip landmark) and draw strokes on canvas.
+Step 13
+Highlighter mode
+Switch context.globalAlpha to 0.35, stroke color to yellow. Same fingertip tracking.
+Step 14
+Color picker toolbar
+Floating toolbar: red, blue, green, black, yellow. Click to switch active color.
+Step 15
+Shape tools
+Gesture or button to switch to rectangle/circle/arrow mode. Track start + end fingertip positions.
+Step 16
+Undo / redo
+Save canvas imageData snapshot after each stroke. Ctrl+Z or gesture pops the stack.
+Step 17
+Per-page annotations
+Store annotations as JSON per page number. Restore when navigating back to a page.
+Step 18
+Clear page gesture
+Flat hand sweep = clear all annotations on current page with a confirm flash.
+Laser pointer + special tools
+Laser dot, timer, thumbnail strip, pip camera
+Step 19
+Laser pointer
+Thumbs up → show glowing red circle at index fingertip position. Animate with CSS pulse ring.
+Step 20
+Presentation timer
+Floating countdown/stopwatch. Start/pause via gesture (3-finger hold). Color shifts red under 2 min.
+Step 21
+Thumbnail strip
+Render all PDF pages as small canvases in a bottom scrollbar. Click to jump. Highlight current.
+Step 22
+Webcam PiP
+Show webcam feed in draggable corner box using Picture-in-Picture API or canvas overlay.
+Step 23
+Snap to PNG
+Gesture triggers html2canvas on the slide area → auto-download as slide-N.png
+Step 24
+Export annotated PDF
+Use pdf-lib to embed canvas drawings as images on each PDF page. Download result.
+Get the code for F4 ↗
+UI polish + gesture cheat sheet
+Make it look great for the demo
+Step 25
+Dark/light mode
+CSS variable toggle. PDF canvas filter: invert(1) hue-rotate(180deg) for dark mode.
+Step 26
+Gesture cheat sheet
+Press H or gesture → overlay modal showing all gesture icons + their actions.
+Step 27
+Toast notifications
+Show "Next slide →", "Draw mode ON" toasts when gestures fire. Auto-dismiss in 1.5s.
+Step 28
+Fullscreen mode
+F key or button → Fullscreen API. Gesture controls still work in fullscreen.
+Get the code for F5 ↗
+Express server + PDF upload
+Set up Node.js backend with file handling
+Step 1
+Init Express app
+npm init, install express, cors, dotenv, nodemon. Set up /api routes folder.
+Step 2
+Multer upload
+POST /api/upload. Accept PDF files up to 20MB. Validate file type. Store in /uploads or Cloudinary.
+Step 3
+MongoDB connect
+mongoose.connect(). Create File schema: name, url, uploadedBy, createdAt.
+Step 4
+File list API
+GET /api/files → return all uploaded PDFs for logged-in user with URLs.
+Get the code for B1 ↗
+User auth (JWT)
+Register, login, protect routes
+Step 5
+User model
+Mongoose schema: email, passwordHash, createdAt. Add pre-save bcrypt hash hook.
+Step 6
+Register route
+POST /api/auth/register → validate email, hash password, save user, return JWT.
+Step 7
+Login route
+POST /api/auth/login → find user, bcrypt.compare(), sign JWT with 7d expiry.
+Step 8
+Auth middleware
+verifyToken middleware. Attach req.user to all protected routes.
+Get the code for B2 ↗
+Annotation save/load API
+Persist drawings per slide per user
+Step 9
+Annotation model
+Schema: fileId, userId, pageNumber, strokes (JSON array), updatedAt.
+Step 10
+Save endpoint
+POST /api/annotations → upsert by fileId + pageNumber + userId. Store strokes JSON.
+Step 11
+Load endpoint
+GET /api/annotations/:fileId → return all pages' strokes for that PDF.
+Step 12
+Auto-save on frontend
+Debounce 2s after last stroke → POST annotations to backend silently.
+Get the code for B3 ↗
+Real-time sharing with Socket.io
+Let others watch your annotated presentation live
+Step 13
+Socket.io setup
+Attach Socket.io to Express HTTP server. Create room per session ID.
+Step 14
+Emit slide events
+On page change or stroke, emit to room: { type, pageNumber, stroke }.
+Step 15
+Viewer mode
+Viewer joins room via share link. Receives events, mirrors presenter's slide and annotations.
+Step 16
+Share link generator
+GET /api/sessions/share → create session doc with unique 6-char code. Return share URL.
+Get the code for B4 ↗
+AI features — slide summarizer + translator
+The feature that puts you ahead of everyone
+Step 17
+Extract slide text
+Use pdf-parse on the uploaded PDF. Extract text per page, store in MongoDB with file.
+Step 18
+Summarize endpoint
+POST /api/ai/summarize → send slide text to Claude API. Return 3-bullet summary.
+Step 19
+Translate endpoint
+POST /api/ai/translate → send text + target language to Claude API. Return translated text overlay.
+Step 20
+Frontend AI panel
+Side drawer showing current slide summary. Language selector dropdown. Loads on gesture or button click.
+Get the code for AI features ↗
